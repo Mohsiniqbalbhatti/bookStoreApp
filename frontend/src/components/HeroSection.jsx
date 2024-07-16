@@ -1,6 +1,14 @@
 import React from "react";
+import { useAuth } from "../context/AuthProvider";
+import toast from "react-hot-toast";
 
 function HeroSection() {
+  const [authUser, setAuthUser] = useAuth();
+  if (authUser) {
+    setTimeout(() => {
+      toast.success("Welcome " + authUser.fullname);
+    }, 2000);
+  }
   return (
     <div>
       <div className="container">

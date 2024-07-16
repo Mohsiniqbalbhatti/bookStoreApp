@@ -13,9 +13,7 @@ function Cards({ book }) {
                 {book.category}
               </span>
             </div>
-            <p className="card-text">
-              Some quick example text to build on the card title
-            </p>
+            <p className="card-text">{book.title}</p>
             <div className="d-flex justify-content-between align-items-center ">
               <span className="badge rounded-pill card-btn ms-2 px-3 ">
                 $ {book.price}

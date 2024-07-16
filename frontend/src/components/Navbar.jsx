@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
+import { useAuth } from "../context/AuthProvider";
+import Logout from "./Logout";
 function Navbar() {
+  const [authUser, setAuthUser] = useAuth();
+  // console.log(authUser);
   const [theme, setIsTheme] = useState(
     localStorage.getItem("theme") || "light"
   );
@@ -114,14 +117,14 @@ function Navbar() {
                   placeholder="Search"
                   aria-label="Search"
                 />
-                <button className="btn" type="submit">
+                <button className="btn seacrh-btn">
                   <i className="fa-solid fa-magnifying-glass"></i>
                 </button>
               </form>
             </li>
           </ul>
         </div>
-        <div className="btnBox">
+        <div className="btnBox d-flex">
           <button
             className="btn fs-4 rounded-pill text-light border-0"
             onClick={handleDarkMode}
@@ -133,11 +136,19 @@ function Navbar() {
               <i className="fa-regular fa-sun"></i>
             )}
           </button>
-          <Link to="/login">
-            <button className="btn bg-black text-light ms-2" type="button">
-              Login
-            </button>
-          </Link>
+
+          {authUser ? (
+            <Logout />
+          ) : (
+            <Link to="/login">
+              <button
+                className="btn bg-black text-light ms-2 mt-1"
+                type="button"
+              >
+                Login
+              </button>
+            </Link>
+          )}
         </div>
       </div>
     </nav>

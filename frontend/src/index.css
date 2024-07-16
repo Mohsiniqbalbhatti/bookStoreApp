@@ -65,14 +65,16 @@ input:focus {
 .search-box:focus-within:hover {
   border: 1px solid black !important;
 }
-.seacrh-box button {
+.seacrh-btn {
   border: none !important;
-  border-left: 1px solid rgba(0, 0, 0, 0.253) !important;
   margin-block: 4px !important;
   border-radius: 0 !important;
+  color: black !important;
 }
-.seacrh-box button:hover {
-  border-left: 1px solid black !important;
+.seacrh-btn:hover,
+.seacrh-btn:active,
+.seacrh-btn:focus {
+  border: none !important;
 }
 #darkModeBtn {
   /* width: 30px; */
@@ -133,7 +135,7 @@ footer ul {
 }
 .footer-item i:hover,
 .footer-item a:hover {
-  color: rgb(0, 0, 0) !important;
+  color: inherit !important;
   font-weight: normal;
   text-decoration: none !important;
 }
